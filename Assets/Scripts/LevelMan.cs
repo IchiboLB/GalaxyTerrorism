@@ -19,10 +19,10 @@ public class LevelMan : MonoBehaviour
     
     void Update()
     {
-        if(curGr.isAlive == false) {
+        if(curGr != null && curGr.isAlive == false) {
             Destroy(curGr.gameObject);
             if(countGr == 5) {
-                SceneManager.LoadSceneAsync(1);
+                SceneManager.LoadSceneAsync(SceneIDS.winScrID);
             } else {
                 NewGrpGen();
                 countGr++;

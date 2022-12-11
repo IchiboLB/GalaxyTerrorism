@@ -15,7 +15,7 @@ public class SpaceBullet : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         Vector3 newPos = new Vector3(transform.position.x, transform.position.y + speed, 0);
         bool check = ScreenHelpers.ObjectNah(newPos);
