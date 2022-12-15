@@ -7,7 +7,7 @@ public class Shipamogus : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject bullet;
 
-    float speed = 0.1f;
+    float speed = 0.05f;
 
     private float halfWidth;
 
@@ -37,7 +37,7 @@ public class Shipamogus : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKeyUp(KeyCode.Space)) {
             GameObject clone = Instantiate(bullet);
             clone.transform.position = transform.position;
         }

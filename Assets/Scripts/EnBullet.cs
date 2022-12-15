@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnBullet : MonoBehaviour
 {
-    float speed = 0.3f;
+    float speed = 0.1f;
     public int damage = 22;
     void Start()
     {
