@@ -6,4 +6,5 @@ public class SceneIDS {
     
     public static int lvlSceneID = 0;
     public static int winScrID = 1;
+    public static int loseScrID = 2;
 }

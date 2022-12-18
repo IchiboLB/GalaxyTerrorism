@@ -7,8 +7,8 @@ public class Shipamogus : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject bullet;
 
-    float speed = 0.05f;
-
+    private float speed = 0.1f;
+    public int health = 300;
     private float halfWidth;
 
     void Start()
@@ -41,5 +41,18 @@ public class Shipamogus : MonoBehaviour
             GameObject clone = Instantiate(bullet);
             clone.transform.position = transform.position;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D otherCollider) 
+    {
+      GameObject secObject = otherCollider.gameObject;
+      EnBullet bulletScript = secObject.GetComponent<EnBullet>();
+      if(bulletScript != null) {
+        health -= bulletScript.damage;
+        Destroy(secObject);
+        if(health <= 0) {
+            Destroy(gameObject);
+        }
+      }
     }
 }
