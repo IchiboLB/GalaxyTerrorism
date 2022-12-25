@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SceneIDS {
     
-    public static int lvlSceneID = 0;
-    public static int winScrID = 1;
-    public static int loseScrID = 2;
+    public static int lvlSceneID = 1;
+    public static int winScrID = 2;
+    public static int loseScrID = 3;
+    public static int selectScrID = 0;
 }

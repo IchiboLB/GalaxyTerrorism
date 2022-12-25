@@ -12,4 +12,9 @@ public class WinScreenMan : MonoBehaviour
     public void ReplayLVL() {
         SceneManager.LoadSceneAsync(SceneIDS.lvlSceneID);
     }
+
+    public void ReturnSelect() 
+    {
+         SceneManager.LoadSceneAsync(SceneIDS.selectScrID);
+    }
 }

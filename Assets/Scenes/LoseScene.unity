@@ -336,7 +336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 688230822}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1701106524}
+        m_TargetAssemblyTypeName: WinScreenMan, Assembly-CSharp
+        m_MethodName: ReturnSelect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &688230822
 MonoBehaviour:
   m_ObjectHideFlags: 0
