@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class LevelMan : MonoBehaviour
 {
     public GameObject firstGroupOrig;
-    private FirstEnGroup curGr;
+    public GameObject ramGroupOrig;
+    private GroupBase curGr;
     private int countGr = 0;
+    private EnGroupType[] grTypes = {EnGroupType.baseGr, EnGroupType.ramGr, EnGroupType.ramGr};
     void Start()
     {
         
@@ -21,7 +23,7 @@ public class LevelMan : MonoBehaviour
     {
         if(curGr != null && curGr.isAlive == false) {
             Destroy(curGr.gameObject);
-            if(countGr == 5) {
+            if(countGr == grTypes.Length) {
                 SceneManager.LoadSceneAsync(SceneIDS.winScrID);
             } else {
                 NewGrpGen();
@@ -34,8 +36,16 @@ public class LevelMan : MonoBehaviour
 
     void NewGrpGen() 
     {
+        if (grTypes[countGr] == EnGroupType.baseGr) {
         GameObject newGr = Instantiate(firstGroupOrig);
         newGr.transform.position = transform.position;
         curGr = newGr.GetComponent<FirstEnGroup>();
+        } else if(grTypes[countGr] == EnGroupType.ramGr) {
+            GameObject newGr = Instantiate(ramGroupOrig);
+            newGr.transform.position = transform.position;
+            curGr = newGr.GetComponent<RamEnGroup>();
+        }
+
     }
+       
 }
