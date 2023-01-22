@@ -21,8 +21,12 @@ public class Shipamogus : MonoBehaviour
     {
         Vector3 newRPos = new Vector3(transform.position.x + speed, transform.position.y, 0);
         Vector3 newLPos = new Vector3(transform.position.x - speed, transform.position.y, 0);
+        Vector3 newUPos = new Vector3(transform.position.x, transform.position.y  + speed, 0);
+        Vector3 newDPos = new Vector3(transform.position.x, transform.position.y  - speed, 0);
         Vector3 checkLPos = new Vector3(newLPos.x - halfWidth, newLPos.y, 0);
         Vector3 checkRPos = new Vector3(newRPos.x + halfWidth, newRPos.y, 0);
+        Vector3 checkUPos = new Vector3(newRPos.x, newRPos.y  + halfWidth, 0);
+        Vector3 checkDPos = new Vector3(newRPos.x, newRPos.y  - halfWidth, 0);
 
         if (Input.GetKey(KeyCode.D)) {
             bool check = ScreenHelpers.ObjectNah(checkRPos);
@@ -35,6 +39,20 @@ public class Shipamogus : MonoBehaviour
             bool check = ScreenHelpers.ObjectNah(checkLPos);
             if (check) {
                 transform.position = newLPos; 
+            }
+        }
+
+         if (Input.GetKey(KeyCode.W)) {
+            bool check = ScreenHelpers.ObjectNah(checkUPos);
+            if (check) {
+                transform.position = newUPos; 
+            }
+        }
+
+         if (Input.GetKey(KeyCode.S)) {
+            bool check = ScreenHelpers.ObjectNah(checkDPos);
+            if (check) {
+                transform.position = newDPos; 
             }
         }
 
@@ -52,6 +70,13 @@ public class Shipamogus : MonoBehaviour
         health -= bulletScript.damage;
         Destroy(secObject);
         if(health <= 0) {
+            SceneManager.LoadSceneAsync(SceneIDS.loseScrID);
+            Destroy(gameObject);
+        }
+      } else {
+        RamShip shipScript = secObject.GetComponent<RamShip>();
+        if(shipScript != null) {
+            Destroy(secObject);
             SceneManager.LoadSceneAsync(SceneIDS.loseScrID);
             Destroy(gameObject);
         }

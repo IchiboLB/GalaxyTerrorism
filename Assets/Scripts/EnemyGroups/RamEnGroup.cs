@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class RamEnGroup : GroupBase
 {
-    
-    void Start()
-    {
-        
-    }
-
+    public RamShip firstShip;
+    public RamShip secShip;
     
     void Update()
     {
-        
+        if(firstShip == null && secShip == null) {
+            isAlive = false;
+            
+        }           
     }
 }
